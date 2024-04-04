@@ -27,33 +27,17 @@
         <div class="right-image">
           <img src="./images/pyramid.png" alt="square based pyramid" width="250" />
         </div>
-        <div class="page-content">Please enter the following:</div>
         <div class="page-content-php">
-          <form action="answer.php" method="POST">
-            <p><br/>l</p>
-            <div class="mdl-textfield mdl-js-textfield">
-              <input class="mdl-textfield__input" type=" text" pattern="-?[0-9]*(\.[0-9]+)?" name="l_value">
-              <label class="mdl-textfield__label" for="l_value_input">enter...</label>
-              <span class="mdl-textfield__error">Input is not a number!</span>
-            </div>
-            <br />
-            <p>w</p>
-            <div class="mdl-textfield mdl-js-textfield">
-              <input class="mdl-textfield__input" type=" text" pattern="-?[0-9]*(\.[0-9]+)?" name="w_value">
-              <label class="mdl-textfield__label" for="w_value_input">enter...</label>
-              <span class="mdl-textfield__error">Input is not a number!</span>
-            </div>
-            <br />
-            <p>h</p>
-            <div class="mdl-textfield mdl-js-textfield">
-              <input class="mdl-textfield__input" type=" text" pattern="-?[0-9]*(\.[0-9]+)?" name="h_value">
-              <label class="mdl-textfield__label" for="h_value_input">enter...</label>
-              <span class="mdl-textfield__error">Input is not a number!</span>
-            </div>
-            <br />
-            <!-- Accent-colored raised button with ripple -->
-            <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">
-          </form>
+          <div id="user-info">
+            <?php
+              $l_value = $_POST["l_value"];
+              $w_value = $_POST["w_value"];
+              $h_value = $_POST["h_value"];
+              $volume = ($l_value * $w_value * $h_value) / 3;
+              $volume_rounded = round($volume, 2);
+              echo "V = " . $volume_rounded . "u <sup>3</sup>";
+            ?>
+          </div>
         </div>
       </main>
     </div>
